@@ -12,6 +12,17 @@ namespace ClassLibrary
     /// </summary>
     public class Worker : IPerson
     {
+        /// <summary>
+        /// Constructor de la clase Worker
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="emailAddress"></param>
+        /// <param name="id"></param>
+        /// <param name="salary"></param>
+        /// <param name="maxDistance"></param>
+        /// <param name="location"></param>
+        /// <param name="service"></param>
         public Worker(string name, string phoneNumber, string emailAddress, string id, int salary, int maxDistance, Location location, Service service)
         {
             this.Name = name;

@@ -4,32 +4,418 @@
         <name>Library</name>
     </assembly>
     <members>
-        <member name="T:ClassLibrary.Train">
+        <member name="T:ClassLibrary.ActiveWorkers">
             <summary>
-            Esta clase representa un tren muy básico.
+            Conoce una lista de tipo workers
             </summary>
         </member>
-        <member name="P:ClassLibrary.Train.IsEngineStarted">
+        <member name="P:ClassLibrary.ActiveWorkers.activeWorkers">
             <summary>
-            Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
+            Conoce cada instancia de Worker creada
             </summary>
-            <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
+            <typeparam name="Worker"></typeparam>
+            <returns></returns>
         </member>
-        <member name="M:ClassLibrary.Train.StartEngines">
+        <member name="T:ClassLibrary.ConsolePrinter">
             <summary>
-            Enciende las máquinas del tren.
+            Esta clase se encargará unicamente de la impresión de datos.
+            Incluye métodos los cuales serán llamados desde otras clases cuando sea necesario
             </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser encendidas, <c>false</c> en caso contrario.
-            </returns>
         </member>
-        <member name="M:ClassLibrary.Train.StopEngines">
+        <member name="M:ClassLibrary.ConsolePrinter.PersonPrinter(ClassLibrary.IPerson)">
             <summary>
-            Detiene las máquinas del tren.
+            Impresion de los datos de cotacto de un IPerson
             </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser detenidas, <c>false</c> en caso contrario.
-            </returns>
+            <param name="person"></param>
+        </member>
+        <member name="M:ClassLibrary.ConsolePrinter.MatchPrinter(ClassLibrary.Worker,ClassLibrary.Employer)">
+            <summary>
+            Impresion en consola cuando se produce un emparejamiento exitoso
+            </summary>
+            <param name="worker"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:ClassLibrary.ConsolePrinter.NoMatch(ClassLibrary.IPerson,ClassLibrary.IPerson)">
+            <summary>
+            Impresion en consola cuando no se produce ningun emparejamiento exitoso
+            </summary>
+            <param name="user"></param>
+            <param name="userMatch"></param>
+        </member>
+        <member name="M:ClassLibrary.ConsolePrinter.FinalizedSearch">
+            <summary>
+            Impresion en consola cuando la busqueda de emparejamiento ha finalizado
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.ConsolePrinter.notExactMatch(ClassLibrary.IPerson)">
+            <summary>
+            Impresion en consola cuando se habilita una negociacion para finalizar un emparejamiento de forma exitosa
+            </summary>
+            <param name="worker"></param>
+        </member>
+        <member name="T:ClassLibrary.Distance">
+            <summary>
+            Clase Distance
+            Conoce el metodo distanceCalculator 
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.Distance.distanceCalculator(ClassLibrary.IPerson,ClassLibrary.IPerson)">
+            <summary>
+            Calcula la distancia entre trabajador y empleado para ver si cumple el radio de distancia ingresado por el trabajador
+            </summary>
+            <param name="person1"></param>
+            <param name="person2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClassLibrary.Employer.#ctor(System.String,System.String,System.String,System.String,System.Double,Locate.Location,ClassLibrary.Service)">
+            <summary>
+            Constructor de la clase Employer
+            </summary>
+            <param name="name"></param>
+            <param name="phoneNumber"></param>
+            <param name="emailAddress"></param>
+            <param name="id"></param>
+            <param name="location"></param>
+            <param name="service"></param>
+        </member>
+        <member name="P:ClassLibrary.Employer.Name">
+            <summary>
+            Nombre del contratador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.PhoneNumber">
+            <summary>
+            Contacto telefonico del contratador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.Location">
+            <summary>
+            Instancia de Location --> ubicación[x, y] del contratador --> permite calcular su distancia con el trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.EmailAddress">
+            <summary>
+            Mail de contacto del contratador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.Id">
+            <summary>
+            Cedula de identidad del contratador --> otorga seguridad a quien trabaje para el en caso de que surgan problemas
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.MinimumRating">
+            <summary>
+            Valoracion minima bajo la cual contrata el employer
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.Reputation">
+            <summary>
+            Lista con instancias de Rate --> provee puntuaciones y descripciones realizadas por usuarios que trabajaron para dicho contratador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.Service">
+            <summary>
+            Instancia de Service --> indica el trabajo que ofrece
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Employer.Rating">
+            <summary>
+            Puntuacion global del contratador
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ClassLibrary.IPerson">
+            <summary>
+            Esta interfaz representa las operaciones relativas a los datos personales, ya sea del empleado o del empleador
+            </summary>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Name">
+            <summary>
+            Getter del nombre de la persona
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.PhoneNumber">
+            <summary>
+            Getter del numero telefonico de la persona
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.EmailAddress">
+            <summary>
+            Getter de la direccion de mail de la persona
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Id">
+            <summary>
+            Getter del id de la persona
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Rating">
+            <summary>
+            Valoracion promedio de los ratings de la persona
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Reputation">
+            <summary>
+            Lista con instancias de evaluacion (cada instancia cuenta con una puntuacion y una descripcion)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Location">
+            <summary>
+            Getter de la ubicacion de una persona (coordenadas)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.IPerson.Service">
+            <summary>
+            Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ClassLibrary.JobFields">
+            <summary>
+            Conoce el diccionario WorkFields
+            </summary>
+        </member>
+        <member name="F:ClassLibrary.JobFields.WorkFields">
+            <summary>
+            Keys: campos de trabajo sobre los cual trabajará el programa
+            Value: lista de cadenas con trabajos especificos respectivos al area
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ClassLibrary.Match">
+             Esta clase comparara los datos entre worker y empleador
+            A partir de ahi dictaminara si existe un emparejamiento posible o no
+            A futuro pensamos hacer uso del chatbot para darle la libertad de negociacion y flexibilizar algunos datos (ej: salario, ubicacion)
+            Y que eso permita un emparejamiento a pesar de que los datos iniciales no coincidieran del todo
+        </member>
+        <member name="M:ClassLibrary.Match.LookingForMatch(ClassLibrary.Employer)">
+            <summary>
+            
+            </summary>
+            <param name="employer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClassLibrary.Match.ExactMatch(ClassLibrary.Worker,ClassLibrary.Employer)">
+            <summary>
+            
+            </summary>
+            <param name="worker"></param>
+            <param name="employer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClassLibrary.Match.Negotiate(ClassLibrary.Worker,ClassLibrary.Employer)">
+            <summary>
+            Metodo que habilita una negociacion de terminos (pago/distancia/valoracion minima) entre ambas partes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ClassLibrary.Rate">
+            <summary>
+            Esta clase se encarga de conocer las instancias de una evaluacion de una IPerson.
+            Conoce la descripcion de un Rating
+            Conoce la puntuacion de un Rating
+            Contiene TotalRating() que calcula la valoracion promedio de los Rating de un IPerson.
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.Rate.#ctor(System.Double,System.String)">
+            <summary>
+            Constructor de la clase Rating.
+            Por cada nueva instancia de Rate, se modifica el Rating de la persona ingresada
+            y se añade dicha instancia a Reputation 
+            </summary>
+            <param name="rate"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:ClassLibrary.Rate.Description">
+            <summary>
+            Breve descripcion formal de una parte respecto a la otra
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Rate.Rating">
+            <summary>
+            La evaluacion consiste de una puntuacion entre 0 y 5
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:ClassLibrary.Rate.TotalRating(ClassLibrary.IPerson)">
+            <summary>
+            Calcula el rating promedio del IPerson
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ClassLibrary.Service">
+            <summary>
+            Clase Service
+            Conoce la string Field (campo de trabajo)
+            Conoce la string SpecificJob (nombre especifico del trabajo)
+            Conoce la descripcion del trabajo
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.Service.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor de la clase Service
+            </summary>
+            <param name="field"></param>
+            <param name="specificJob"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:ClassLibrary.Service.Field">
+            <summary>
+            Campo de trabajo del servicio --> debe exister como clave dentro del diccionario JobFields.WorkFields 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Service.SpecificJob">
+            <summary>
+            Nombre mas especifico del trabajo --> debe existir como valor dentro del Field ingresado
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Service.Description">
+            <summary>
+            Descripcion formal del trabajo
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ClassLibrary.Worker">
+            <summary>
+            Clase Worker
+            Conoce datos personales del trabajador (Name, PhoneNumber, EmailAdress, Id).
+            Conoce Salary
+            Conoce ServicesList
+            Conoce MaxDistance
+            Cada vez que crea una instancia, la añade a la lista activeWorkers
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.Worker.#ctor(System.String,System.String,System.String,System.String,System.Int32,System.Int32,Locate.Location,ClassLibrary.Service)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="phoneNumber"></param>
+            <param name="emailAddress"></param>
+            <param name="id"></param>
+            <param name="salary"></param>
+            <param name="maxDistance"></param>
+            <param name="location"></param>
+            <param name="service"></param>
+        </member>
+        <member name="P:ClassLibrary.Worker.Name">
+            <summary>
+            Nombre del trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.PhoneNumber">
+            <summary>
+            Contacto telefonico del trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.Location">
+            <summary>
+            Instancia de Location --> ubicación[x, y] del trabajador --> permite calcular su distancia con el empleador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.EmailAddress">
+            <summary>
+            Mail de contacto del trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.Id">
+            <summary>
+            Cedula de identidad del trabajador --> otorga seguridad a quien lo contrate en caso de que surgan problemas
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.Reputation">
+            <summary>
+            Lista con instancias de Rate --> provee puntuaciones y descripciones realizadas por usuarios que contrataron a dicho trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.Service">
+            <summary>
+            Instancia de Service --> indica el trabajo que ofrece
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.MaxDistance">
+            <summary>
+            Indica el radio maximo de distancia que el trabajador esta dispuesto a "recorrer"
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.ServicesList">
+            <summary>
+            Lista de instancias Service --> el trabajador puede ofrecer mas de un unico servicio
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:ClassLibrary.Worker.activeWorkers">
+            <summary>
+            Lista que contiene instancias de Worker --> base de datos de todas las ofertas de trabajo activas disponibles 
+            </summary>
+        </member>
+        <member name="P:ClassLibrary.Worker.Salary">
+            <summary>
+            Pago minimo fijado por un trabajador para un determinado servicio
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ClassLibrary.Worker.Rating">
+            <summary>
+            Valor promedio de los ratings del trabajador
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Locate.Location">
+            <summary>
+            Esta clase se encarga de guardar las coordenadas de una persona en objeto
+            </summary>
+        </member>
+        <member name="M:Locate.Location.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor de la clase Location
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Locate.Location.getX">
+            <summary>
+            Getter de la coordenada X
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Locate.Location.getY">
+            <summary>
+            Getter de la coordenada Y
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Locate.Location.getLocation">
+            <summary>
+            Getter de la ubicacion en formato [X, Y]
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
