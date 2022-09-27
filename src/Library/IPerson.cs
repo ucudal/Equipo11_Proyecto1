@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Locate;
 
 namespace ClassLibrary
 {
@@ -21,7 +22,7 @@ namespace ClassLibrary
         string Id { get; }
 
         //Getter de la ubicacion de una persona (coordenadas)
-        List<int> Location { get; }
+        Location Location { get; set;}
 
         //  Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
         Service Service { get; }
