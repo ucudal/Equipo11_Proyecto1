@@ -3,13 +3,17 @@ using Locate;
 namespace ClassLibrary
 {
     /// <summary>
-    /// Esta clase se encarga de conocer las instancias de una evaluacion de una IPerson
-    /// Asimismo, se encarga de agregar a una lista (asociada a la persona evaluada) dicho Rating
+    /// Esta clase se encarga de conocer las instancias de una evaluacion de una IPerson.
+    /// Conoce la descripcion de un Rating
+    /// Conoce la puntuacion de un Rating
+    /// Contiene TotalRating() que calcula la valoracion promedio de los Rating de un IPerson.
     /// </summary>
     public class Rate
     {
         /// <summary>
-        /// Constructor de la clase Rating
+        /// Constructor de la clase Rating.
+        /// Por cada nueva instancia de Rate, se modifica el Rating de la persona ingresada
+        /// y se añade dicha instancia a Reputation 
         /// </summary>
         /// <param name="rate"></param>
         /// <param name="description"></param>
