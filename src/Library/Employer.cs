@@ -90,14 +90,13 @@ namespace ClassLibrary
                 }
             }
         }
-        public Employer(string name, string phoneNumber, string emailAddress, string id, Location location, int maxDistance, Service service)
+        public Employer(string name, string phoneNumber, string emailAddress, string id, Location location, Service service)
         {
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.EmailAddress = emailAddress;
             this.Id = id;
             this.Location = location;
-            this.MaxDistance = maxDistance;
             this.Service = service;
 
         }

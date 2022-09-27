@@ -26,5 +26,7 @@ namespace ClassLibrary
 
         //  Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
         Service Service { get; }
+
+        
     }
 }

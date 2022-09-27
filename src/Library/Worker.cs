@@ -88,16 +88,19 @@ public class Worker : IPerson
             }
         }
     }
+
+    public int MaxDistance {get; set;}
     public List<Service> ServicesList {get;set;}
     private List<Worker> activeWorkers;
     public int Salary { get; set; }
-    public Worker(string name, string phoneNumber, string emailAddress, string id, Location location, Service service, int salary)
+    public Worker(string name, string phoneNumber, string emailAddress, string id, Location location, Service service, int salary, int maxDistance)
     {
         this.Name = name;
         this.PhoneNumber = phoneNumber;
         this.EmailAddress = emailAddress;
         this.Id = id;
         this.Location = location;
+        this.MaxDistance=maxDistance;
         this.Service = service;
         this.ServicesList.Add(this.Service);
         this.Salary = salary;

@@ -38,11 +38,11 @@ namespace ClassLibrary
                 }
             }
         }
-        public double StarsRating
+        public int StarsRating
         {
             get
             {
-                return this.starsRating;
+                return this.StarsRating;
             }
             set
             {
@@ -68,11 +68,14 @@ namespace ClassLibrary
             }
         }
 
-        public Service(string field, string fieldArea, double starsRating, string description)
+        public int amountOfRatings {get; set;}
+
+        public Service(string field, string fieldArea, string description)
         {
             this.Field = field;
             this.Field = fieldArea;
-            this.StarsRating = starsRating;
+            this.StarsRating = 0;
+            this.amountOfRatings=0;
             this.Description = description;
         }
     }
