@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace ClassLibrary
 {
@@ -11,35 +11,50 @@ namespace ClassLibrary
     {
         private IPerson person;
 
-        public static bool LookingForMatch(Employer employer)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="employer"></param>
+        /// <returns></returns>
+        public static List<Worker> LookingForMatch(Employer employer)
         {
+            List<Worker> matchList= new List<Worker> ();
             foreach (Worker worker in ActiveWorkers.activeWorkers)
             {
                 if (ExactMatch(worker, employer))
                 {
                     ConsolePrinter.MatchPrinter(worker, employer);
-                    return true;
+                    matchList.Add(worker);
                 }
                 else
                 {
-                    ConsolePrinter.NoMatch(employer, worker);
-                    return false;
+                    if (Negotiate(worker, employer))
+                    {
+
+                    }
                 }
+
             }
-            //Falta un return afuera del foreach por eso es el error   
+            return matchList;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="worker"></param>
+        /// <param name="employer"></param>
+        /// <returns></returns>
 
         private static bool ExactMatch(Worker worker, Employer employer)
         {
-            if (worker.Service.FieldArea == employer.Service.FieldArea)
+            if (worker.Service.SpecificJob == employer.Service.SpecificJob)
             {
-                if (worker.Service.StarsRating >= employer.Service.StarsRating)
+                if (Rate.TotalRating(worker) >= employer.MinimumRating)
                 {
                     return true;
                 }
                 else
                 {
-                    ConsolePrinter.notExactMatch(worker);
                     return false;
                 }
             }
@@ -49,9 +64,16 @@ namespace ClassLibrary
             }
         }
 
-        //  Habilitacion para la negociacion entre ambas partes
-        public static bool Negotiate()
+        /// <summary>
+        /// Metodo que habilita una negociacion de terminos (pago/distancia/valoracion minima) entre ambas partes
+        /// </summary>
+        /// <returns></returns>
+        public static bool Negotiate(Worker worker, Employer employer)
         {
+            /// Aca se implementaria un chatbot de negociacion entre ambos, donde se pone en la mesa
+            /// Que se debe modificar para poder emparejar, si lo desean modificar (y en caso afirmativo cómo)
+
+            return true;
         }
     }
 }

@@ -2,11 +2,16 @@ using System;
 using System.Collections.Generic;
 namespace ClassLibrary
 {
+    /// <summary>
+    /// Conoce el diccionario WorkFields
+    /// </summary>
 public class JobFields
 {
+    /// <summary>
     /// Keys: campos de trabajo sobre los cual trabajará el programa
-    /// Value: lista de cadenas sobre los areas mas especificas de cada campo de trabajo
-    /// Actua como base de datos para los usuarios; no se modifica
+    /// Value: lista de cadenas con trabajos especificos respectivos al area
+    /// </summary>
+    /// <value></value>
     public static Dictionary<string, List<string>> WorkFields = new Dictionary<string, List<string>>
 
     {

@@ -10,27 +10,44 @@ namespace Locate
     /// </summary>
     public class Location
     {
-        IPerson person;
-        private Dictionary<string,int> personCoord;
+        /// <summary>
+        /// Constructor de la clase Location
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public Location(int x, int y)
         {
             personCoord["X"]= x;
             personCoord["Y"]=y;
         }
-
+        IPerson person;
+        private Dictionary<string,int> personCoord;
+        
+        /// <summary>
+        /// Getter de la coordenada X
+        /// </summary>
+        /// <returns></returns>
         public int getX()
         {
             return personCoord["X"];
         }
 
+        /// <summary>
+        /// Getter de la coordenada Y
+        /// </summary>
+        /// <returns></returns>
         public int getY()
         {
             return personCoord["Y"];
         }
 
+        /// <summary>
+        /// Getter de la ubicacion en formato [X, Y]
+        /// </summary>
+        /// <returns></returns>
         public string getLocation()
         {
-            return $"{person.Name} Location = {personCoord["X"]},{personCoord["Y"]}";
+            return $"{person.Name} Location = {getX()},{getY()}";
         }
     }
 

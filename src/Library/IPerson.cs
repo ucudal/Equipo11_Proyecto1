@@ -9,22 +9,52 @@ namespace ClassLibrary
     /// </summary>
     public interface IPerson
     {
-        //  Getter del nombre de la persona
+        /// <summary>
+        /// Getter del nombre de la persona
+        /// </summary>
+        /// <value></value>
         string Name { get; }
 
-        //  Getter del numero telefonico de la persona
+        /// <summary>
+        /// Getter del numero telefonico de la persona
+        /// </summary>
+        /// <value></value>
         string PhoneNumber { get; }
 
-        //  Getter de la direccion de mail de la persona
+        /// <summary>
+        /// Getter de la direccion de mail de la persona
+        /// </summary>
+        /// <value></value>
         string EmailAddress { get; }
 
-        //  Getter del id de la persona
+        /// <summary>
+        /// Getter del id de la persona
+        /// </summary>
+        /// <value></value>
         string Id { get; }
 
-        //Getter de la ubicacion de una persona (coordenadas)
+        /// <summary>
+        /// Valoracion promedio de los ratings de la persona
+        /// </summary>
+        /// <value></value>
+        public double Rating {get;set;}
+
+        /// <summary>
+        /// Lista con instancias de evaluacion (cada instancia cuenta con una puntuacion y una descripcion)
+        /// </summary>
+        /// <value></value>
+        List<Rate> Reputation {get; set;}
+
+        /// <summary>
+        /// Getter de la ubicacion de una persona (coordenadas)
+        /// </summary>
+        /// <value></value>
         Location Location { get; set;}
 
-        //  Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
+        /// <summary>
+        /// Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
+        /// </summary>
+        /// <value></value>
         Service Service { get; }
 
         

@@ -5,22 +5,46 @@ namespace ClassLibrary
 {
     public class Employer : IPerson
     {
+        /// <summary>
+        /// Constructor de la clase Employer
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="emailAddress"></param>
+        /// <param name="id"></param>
+        /// <param name="location"></param>
+        /// <param name="service"></param>
+        public Employer(string name, string phoneNumber, string emailAddress, string id, double minimumRating, Location location, Service service)
+        {
+            this.Name = name;
+            this.PhoneNumber = phoneNumber;
+            this.EmailAddress = emailAddress;
+            this.Id = id;
+            this.MinimumRating= minimumRating;
+            this.Rating= 0;
+            this.Reputation = new List<Rate>();
+            this.Location = location;
+            this.Service = service;
+        }
         private string name;
         private string phoneNumber;
         private string emailAddress;
         private string id;
-        public Location Location {get; set;}
-        public int MaxDistance { get; set; }
+        private double minimumRating;
         private Service service;
+        private double rating;
 
-        public double StarsRating { get; set; }
+
+        /// <summary>
+        /// Nombre del contratador
+        /// </summary>
+        /// <value></value>
         public string Name
         {
             get
             {
                 return this.name;
             }
-
             set
             {
                 if (!string.IsNullOrEmpty(value))
@@ -29,13 +53,18 @@ namespace ClassLibrary
                 }
             }
         }
+
+
+        /// <summary>
+        /// Contacto telefonico del contratador
+        /// </summary>
+        /// <value></value>
         public string PhoneNumber
         {
             get
             {
                 return this.phoneNumber;
             }
-
             set
             {
                 if (!string.IsNullOrEmpty(value) && value.Length == 9)
@@ -44,13 +73,24 @@ namespace ClassLibrary
                 }
             }
         }
+
+        /// <summary>
+        /// Instancia de Location --> ubicación[x, y] del contratador --> permite calcular su distancia con el trabajador
+        /// </summary>
+        /// <value></value>
+        public Location Location { get; set; }
+
+
+        /// <summary>
+        /// Mail de contacto del contratador
+        /// </summary>
+        /// <value></value>
         public string EmailAddress
         {
             get
             {
                 return this.emailAddress;
             }
-
             set
             {
                 if (!string.IsNullOrEmpty(value) && value.Contains("@"))
@@ -59,6 +99,11 @@ namespace ClassLibrary
                 }
             }
         }
+
+        /// <summary>
+        /// Cedula de identidad del contratador --> otorga seguridad a quien trabaje para el en caso de que surgan problemas
+        /// </summary>
+        /// <value></value>
         public string Id
         {
             get
@@ -75,13 +120,41 @@ namespace ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Valoracion minima bajo la cual contrata el employer
+        /// </summary>
+        /// <value></value>
+        public double MinimumRating
+        {
+            get
+            {
+                return this.minimumRating;
+            }
+            set
+            {
+                if (value <= 5)
+                {
+                    this.minimumRating = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Lista con instancias de Rate --> provee puntuaciones y descripciones realizadas por usuarios que trabajaron para dicho contratador
+        /// </summary>
+        /// <value></value>
+        public List<Rate> Reputation { get; set; }
+
+        /// <summary>
+        /// Instancia de Service --> indica el trabajo que ofrece
+        /// </summary>
+        /// <value></value>
         public Service Service
         {
             get
             {
                 return this.service;
             }
-
             set
             {
                 if (this.service != null)
@@ -90,15 +163,25 @@ namespace ClassLibrary
                 }
             }
         }
-        public Employer(string name, string phoneNumber, string emailAddress, string id, Location location, Service service)
-        {
-            this.Name = name;
-            this.PhoneNumber = phoneNumber;
-            this.EmailAddress = emailAddress;
-            this.Id = id;
-            this.Location = location;
-            this.Service = service;
 
+        /// <summary>
+        /// Puntuacion global del contratador
+        /// </summary>
+        /// <value></value>
+        public double Rating
+        {
+            get
+            {
+                return this.rating;
+            }
+            set
+            {
+                if (value <= 5)
+                {
+                    this.rating = value;
+                }
+            }
         }
+
     }
 }

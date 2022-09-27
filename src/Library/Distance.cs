@@ -6,10 +6,17 @@ using ClassLibrary;
 namespace ClassLibrary
 {
     /// <summary>
-    /// Esta clase calculara la distancia entre trabajador y empleado para ver si cumple el radio de distancia ingresado por el empleador
+    /// Clase Distance
+    /// Conoce el metodo distanceCalculator 
     /// </summary>
     public class Distance
     {
+        /// <summary>
+        /// Calcula la distancia entre trabajador y empleado para ver si cumple el radio de distancia ingresado por el trabajador
+        /// </summary>
+        /// <param name="person1"></param>
+        /// <param name="person2"></param>
+        /// <returns></returns>
         public static int distanceCalculator(IPerson person1, IPerson person2)
         {
             double Distance = Math.Sqrt( (Math.Pow(person1.Location.getX(),2) + Math.Pow(person2.Location.getX(),2)) - ( Math.Pow(person1.Location.getY(),2) ) + ( Math.Pow(person2.Location.getY(),2)) );
