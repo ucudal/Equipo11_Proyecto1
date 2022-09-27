@@ -42,7 +42,7 @@ public class Worker : IPerson
     }
 
     //  Conoce la ubicación del trabajador, para luego poder calcular su distancia con el empleador
-    public List<int> Location { get; set; }
+    public Location Location { get; set; }
     public string EmailAddress
     {
         get
@@ -91,7 +91,7 @@ public class Worker : IPerson
     public List<Service> ServicesList {get;set;}
     private List<Worker> activeWorkers;
     public int Salary { get; set; }
-    public Worker(string name, string phoneNumber, string emailAddress, string id, List<int> location, Service service, int salary)
+    public Worker(string name, string phoneNumber, string emailAddress, string id, Location location, Service service, int salary)
     {
         this.Name = name;
         this.PhoneNumber = phoneNumber;
