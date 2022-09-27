@@ -11,20 +11,25 @@ namespace ClassLibrary
     {
         private IPerson person;
 
-        public bool LookingForMatch(Employer employer)
+        public static bool LookingForMatch(Employer employer)
         {
-            foreach (Worker worker in ActiveWorkers)
+            foreach (Worker worker in ActiveWorkers.activeWorkers)
             {
                 if (ExactMatch(worker, employer))
                 {
                     ConsolePrinter.MatchPrinter(worker, employer);
+                    return true;
                 }
-
-
+                else
+                {
+                    ConsolePrinter.NoMatch(employer, worker);
+                    return false;
+                }
             }
+            //Falta un return afuera del foreach por eso es el error   
         }
 
-        private bool ExactMatch(Worker worker, Employer employer)
+        private static bool ExactMatch(Worker worker, Employer employer)
         {
             if (worker.Service.FieldArea == employer.Service.FieldArea)
             {
@@ -34,7 +39,8 @@ namespace ClassLibrary
                 }
                 else
                 {
-                    Console.WriteLine($"We found someone for you. However, his rating ({worker.}) is lower than expected ?");
+                    ConsolePrinter.notExactMatch(worker);
+                    return false;
                 }
             }
             else
@@ -44,9 +50,8 @@ namespace ClassLibrary
         }
 
         //  Habilitacion para la negociacion entre ambas partes
-        public bool Negotiate()
+        public static bool Negotiate()
         {
-
         }
     }
 }

@@ -3,7 +3,11 @@ using ClassLibrary;
 using System.Collections;
 using System.Collections.Generic;
 namespace Locate
+
 {
+    /// <summary>
+    /// Esta clase se encarga de guardar las coordenadas de una persona en objeto
+    /// </summary>
     public class Location
     {
         IPerson person;

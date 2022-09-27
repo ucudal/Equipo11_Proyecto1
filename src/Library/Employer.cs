@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Locate;
 
 namespace ClassLibrary
 {
@@ -8,7 +9,7 @@ namespace ClassLibrary
         private string phoneNumber;
         private string emailAddress;
         private string id;
-        public List<int> Location { get; set; }
+        public Location Location {get; set;}
         public int MaxDistance { get; set; }
         private Service service;
 
@@ -73,6 +74,7 @@ namespace ClassLibrary
                 //}
             }
         }
+
         public Service Service
         {
             get
@@ -88,7 +90,7 @@ namespace ClassLibrary
                 }
             }
         }
-        public Employer(string name, string phoneNumber, string emailAddress, string id, List<int> location, int maxDistance, Service service)
+        public Employer(string name, string phoneNumber, string emailAddress, string id, Location location, int maxDistance, Service service)
         {
             this.Name = name;
             this.PhoneNumber = phoneNumber;

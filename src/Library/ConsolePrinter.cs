@@ -24,7 +24,17 @@ public class ConsolePrinter
     }
     public static void NoMatch(IPerson user, IPerson userMatch)
     {
-        Console.WriteLine("Por el momento se encuentra disponible un emparejamiento. Vuelva más tarde...");
+        Console.WriteLine("Por el momento no se encuentra disponible un emparejamiento. Vuelva a intentar más tarde...");
+    }
+
+    public static void finalizedSearch()
+    {
+        Console.WriteLine("La búsuqeda ha finalizado");
+    }
+
+    public static void notExactMatch(IPerson worker)
+    {
+        Console.WriteLine($"Hemos encontrado a alguien para ti, sin embargo su calificación {worker.Name} es menor que la esperada");
     }
     
     
