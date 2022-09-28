@@ -23,20 +23,18 @@ namespace ClassLibrary
         /// <param name="maxDistance"></param>
         /// <param name="location"></param>
         /// <param name="service"></param>
-        public Worker(string name, string phoneNumber, string emailAddress, string id, int salary, int maxDistance, Location location, Service service)
+        public Worker(string name, string phoneNumber, string emailAddress, string id, int maxDistance, Location location, Service service)
         {
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.EmailAddress = emailAddress;
             this.Id = id;
-            this.Salary = salary;
             this.MaxDistance = maxDistance;
             this.Location = location;
-            this.Service = service;
             this.Rating= 0;
             this.Reputation = new List<Rate>();
-            this.ServicesList.Add(this.Service);
-            this.activeWorkers.Add(this);
+            this.ServicesList= new List<Service>() {service};
+            ActiveWorkers.activeWorkers.Add(this);
         }
         private string name;
         private string phoneNumber;
@@ -135,25 +133,6 @@ namespace ClassLibrary
         public List<Rate> Reputation { get; set; }
 
         /// <summary>
-        /// Instancia de Service --> indica el trabajo que ofrece
-        /// </summary>
-        /// <value></value>
-        public Service Service
-        {
-            get
-            {
-                return this.service;
-            }
-            set
-            {
-                if (this.service != null)
-                {
-                    this.service = value;
-                }
-            }
-        }
-
-        /// <summary>
         /// Indica el radio maximo de distancia que el trabajador esta dispuesto a "recorrer"
         /// </summary>
         /// <value></value>
@@ -166,21 +145,21 @@ namespace ClassLibrary
         public List<Service> ServicesList { get; set; }
 
         /// <summary>
-        /// Lista que contiene instancias de Worker --> base de datos de todas las ofertas de trabajo activas disponibles 
-        /// </summary>
-        private List<Worker> activeWorkers;
-
-        /// <summary>
-        /// Pago minimo fijado por un trabajador para un determinado servicio
-        /// </summary>
-        /// <value></value>
-        public int Salary { get; set; }
-
-        /// <summary>
         /// Valor promedio de los ratings del trabajador
         /// </summary>
         /// <value></value>
         public double Rating {get;set;}
 
-    }
+        /// <summary>
+        /// Metodo que añade una instancia de service a Person.ServicesList
+        /// </summary>
+        /// <param name="service"></param>
+        public void AddService(Service service)
+        {
+            if (service != null)
+            {
+                this.ServicesList.Add(service);
+            }
+        }
+    }   
 }

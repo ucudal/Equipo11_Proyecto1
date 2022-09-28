@@ -24,14 +24,13 @@ namespace ClassLibrary
             this.Rating= 0;
             this.Reputation = new List<Rate>();
             this.Location = location;
-            this.Service = service;
+            this.ServicesList= new List<Service> () {service};
         }
         private string name;
         private string phoneNumber;
         private string emailAddress;
         private string id;
         private double minimumRating;
-        private Service service;
         private double rating;
 
 
@@ -146,23 +145,10 @@ namespace ClassLibrary
         public List<Rate> Reputation { get; set; }
 
         /// <summary>
-        /// Instancia de Service --> indica el trabajo que ofrece
+        /// Lista con instancias de Service --> indica el trabajo que ofrece
         /// </summary>
         /// <value></value>
-        public Service Service
-        {
-            get
-            {
-                return this.service;
-            }
-            set
-            {
-                if (this.service != null)
-                {
-                    this.service = value;
-                }
-            }
-        }
+        public List<Service> ServicesList { get; set; }
 
         /// <summary>
         /// Puntuacion global del contratador
@@ -180,6 +166,18 @@ namespace ClassLibrary
                 {
                     this.rating = value;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Metodo que añade una instancia de service a Person.ServicesList
+        /// </summary>
+        /// <param name="service"></param>
+        public void AddService(Service service)
+        {
+            if (service != null)
+            {
+                this.ServicesList.Add(service);
             }
         }
 

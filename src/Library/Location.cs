@@ -17,11 +17,15 @@ namespace Locate
         /// <param name="y"></param>
         public Location(int x, int y)
         {
-            personCoord["X"]= x;
-            personCoord["Y"]=y;
+            this.PersonCoord= new Dictionary<string, int> {{"X", x}, {"Y", y}};
         }
         IPerson person;
-        private Dictionary<string,int> personCoord;
+
+        /// <summary>
+        /// Diccionario cuyas claves son X e Y, y sus valores son los valores respectivos a cada coordenada
+        /// </summary>
+        /// <value></value>
+        public Dictionary<string,int> PersonCoord {get; set;}
         
         /// <summary>
         /// Getter de la coordenada X
@@ -29,7 +33,7 @@ namespace Locate
         /// <returns></returns>
         public int getX()
         {
-            return personCoord["X"];
+            return PersonCoord["X"];
         }
 
         /// <summary>
@@ -38,7 +42,7 @@ namespace Locate
         /// <returns></returns>
         public int getY()
         {
-            return personCoord["Y"];
+            return PersonCoord["Y"];
         }
 
         /// <summary>

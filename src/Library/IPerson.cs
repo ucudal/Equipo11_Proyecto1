@@ -55,7 +55,13 @@ namespace ClassLibrary
         /// Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
         /// </summary>
         /// <value></value>
-        Service Service { get; }
+        List<Service> ServicesList { get; set; }
+
+        /// <summary>
+        /// Metodo que añade una instancia de service a Person.ServicesList
+        /// </summary>
+        /// <param name="service"></param>
+        void AddService(Service service);
 
         
     }

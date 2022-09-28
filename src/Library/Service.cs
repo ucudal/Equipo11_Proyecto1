@@ -7,6 +7,7 @@ namespace ClassLibrary
     /// Conoce la string Field (campo de trabajo)
     /// Conoce la string SpecificJob (nombre especifico del trabajo)
     /// Conoce la descripcion del trabajo
+    /// Conoce el coste a pagar del trabajo
     /// </summary>
     public class Service
     {
@@ -16,11 +17,13 @@ namespace ClassLibrary
         /// <param name="field"></param>
         /// <param name="specificJob"></param>
         /// <param name="description"></param>
-        public Service(string field, string specificJob, string description)
+        /// <param name="cost"></param>
+        public Service(string field, string specificJob, string description, int cost)
         {
             this.Field = field;
             this.SpecificJob = specificJob;
             this.Description = description;
+            this.Cost = cost;
         }
         private string fieldArea;
         private string field;
@@ -66,7 +69,7 @@ namespace ClassLibrary
                 }
             }
         }
-        
+
         /// <summary>
         /// Descripcion formal del trabajo
         /// </summary>
@@ -85,5 +88,11 @@ namespace ClassLibrary
                 }
             }
         }
+
+        /// <summary>
+        /// Lo que la persona espera pagar(contratador)/cobrar(trabajador) por dicho servicio
+        /// </summary>
+        /// <value></value>
+        public int Cost { get; set; }
     }
 }
