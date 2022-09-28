@@ -17,18 +17,10 @@ namespace ClassLibrary
         /// <param name="person1"></param>
         /// <param name="person2"></param>
         /// <returns></returns>
-        public static int DistanceCalculator(IPerson person1, IPerson person2)
+        public static double DistanceCalculator(IPerson person1, IPerson person2)
         {
-            double Distance = Math.Sqrt( (Math.Pow(person1.Location.getX(),2) + Math.Pow(person2.Location.getX(),2)) - ( Math.Pow(person1.Location.getY(),2) ) + ( Math.Pow(person2.Location.getY(),2)) );
-            if(Distance<0)
-            {
-                return Convert.ToInt32(Distance)*-1;
-            }
-            else
-            {
-                return Convert.ToInt32(Distance);
-            }
-
+            double Distance = Math.Sqrt( (Math.Pow(person1.Location.getLatitude()-person2.Location.getLatitude(),2) ) + ( Math.Pow(person1.Location.getLongitude()-person2.Location.getLongitude(),2) ));
+            return Distance;
         }
     }
 }

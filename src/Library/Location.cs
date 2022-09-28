@@ -17,7 +17,7 @@ namespace ClassLibrary
         /// <param name="y"></param>
         public Location(int x, int y)
         {
-            this.PersonCoord= new Dictionary<string, int> {{"X", x}, {"Y", y}};
+            this.PersonCoord= new Dictionary<string, int> {{"Latitude", x}, {"Longitude", y}};
         }
         IPerson person;
 
@@ -31,18 +31,18 @@ namespace ClassLibrary
         /// Getter de la coordenada X
         /// </summary>
         /// <returns></returns>
-        public int getX()
+        public int getLatitude()
         {
-            return PersonCoord["X"];
+            return PersonCoord["Latitude"];
         }
 
         /// <summary>
         /// Getter de la coordenada Y
         /// </summary>
         /// <returns></returns>
-        public int getY()
+        public int getLongitude()
         {
-            return PersonCoord["Y"];
+            return PersonCoord["Longitude"];
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace ClassLibrary
         /// <returns></returns>
         public string getLocation()
         {
-            return $"{person.Name} Location = {getX()},{getY()}";
+            return $"{person.Name} Location = {getLatitude()},{getLongitude()}";
         }
     }
 

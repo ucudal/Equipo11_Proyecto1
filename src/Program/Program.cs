@@ -32,6 +32,9 @@ namespace ConsoleApplication
             ConsolePrinter.PersonPrinter(chinoRecoba);
             Console.WriteLine(castro.Reputation[0].Description);
             Console.WriteLine(chinoRecoba.Reputation[0].Description);
+            Console.WriteLine(Distance.DistanceCalculator(chinoRecoba,castro));
+
+            
         }
     }
 }
