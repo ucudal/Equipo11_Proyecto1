@@ -4,15 +4,12 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.TrainTests">
+        <member name="T:Tests.PersonTests">
             <summary>
-            Prueba de la clase <see cref="!:Train"/>.
+            Pruebas de las instancias de tipo IPerson
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.Setup">
-            <summary>
-            
-            </summary>
+        <member name="M:Tests.PersonTests.Setup">
              <summary>
             
              </summary>

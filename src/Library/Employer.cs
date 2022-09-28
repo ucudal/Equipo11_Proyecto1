@@ -2,6 +2,14 @@ using System.Collections.Generic;
 
 namespace ClassLibrary
 {
+
+    /// <summary>
+    /// Clase Employer
+    /// Conoce sus datos personales (datos de contacto y c.i).
+    /// Conoce una lista con 1 o mas instancias de Service
+    /// Conoce una lista con 1 o mas instancias de Rate
+    /// Método AddService que le permite añadir una nueva instancia de Service a su lista de Servicios
+    /// </summary>
     public class Employer : IPerson
     {
         /// <summary>
@@ -11,6 +19,7 @@ namespace ClassLibrary
         /// <param name="phoneNumber"></param>
         /// <param name="emailAddress"></param>
         /// <param name="id"></param>
+        /// <param name="minimumRating"></param>
         /// <param name="location"></param>
         /// <param name="service"></param>
         public Employer(string name, string phoneNumber, string emailAddress, string id, double minimumRating, Location location, Service service)

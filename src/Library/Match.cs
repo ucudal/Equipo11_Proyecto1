@@ -62,8 +62,8 @@ namespace ClassLibrary
         /// <returns></returns>
         public static bool Negotiate(Worker worker, Employer employer)
         {
-            /// Aca se implementaria un chatbot de negociacion entre ambos, donde se pone en la mesa
-            /// Que se debe modificar para poder emparejar, si lo desean modificar (y en caso afirmativo cómo)
+            // Aca se implementaria un chatbot de negociacion entre ambos, donde se pone en la mesa
+            // Que se debe modificar para poder emparejar, si lo desean modificar (y en caso afirmativo cómo)
 
             return true;
         }

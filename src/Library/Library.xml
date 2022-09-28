@@ -67,6 +67,15 @@
             <param name="person2"></param>
             <returns></returns>
         </member>
+        <member name="T:ClassLibrary.Employer">
+            <summary>
+            Clase Employer
+            Conoce sus datos personales (datos de contacto y c.i).
+            Conoce una lista con 1 o mas instancias de Service
+            Conoce una lista con 1 o mas instancias de Rate
+            Método AddService que le permite añadir una nueva instancia de Service a su lista de Servicios
+            </summary>
+        </member>
         <member name="M:ClassLibrary.Employer.#ctor(System.String,System.String,System.String,System.String,System.Double,ClassLibrary.Location,ClassLibrary.Service)">
             <summary>
             Constructor de la clase Employer
@@ -75,6 +84,7 @@
             <param name="phoneNumber"></param>
             <param name="emailAddress"></param>
             <param name="id"></param>
+            <param name="minimumRating"></param>
             <param name="location"></param>
             <param name="service"></param>
         </member>
@@ -357,6 +367,14 @@
             y determinar si existe una coincidencia o no
             </summary>
         </member>
+        <member name="M:ClassLibrary.ServiceFilter.serviceFilter(ClassLibrary.Worker,ClassLibrary.Employer)">
+            <summary>
+            Metodo que devuelve un valor booleano respecto a si los service que busca un employer coinciden con los que ofrece un trabajador
+            </summary>
+            <param name="worker"></param>
+            <param name="employer"></param>
+            <returns></returns>
+        </member>
         <member name="T:ClassLibrary.Worker">
             <summary>
             Clase Worker
@@ -375,7 +393,6 @@
             <param name="phoneNumber"></param>
             <param name="emailAddress"></param>
             <param name="id"></param>
-            <param name="salary"></param>
             <param name="maxDistance"></param>
             <param name="location"></param>
             <param name="service"></param>

@@ -19,7 +19,6 @@ namespace ClassLibrary
         /// <param name="phoneNumber"></param>
         /// <param name="emailAddress"></param>
         /// <param name="id"></param>
-        /// <param name="salary"></param>
         /// <param name="maxDistance"></param>
         /// <param name="location"></param>
         /// <param name="service"></param>

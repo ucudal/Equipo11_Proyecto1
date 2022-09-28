@@ -8,6 +8,12 @@ namespace ClassLibrary
     /// </summary>
     public class ServiceFilter
     {
+        /// <summary>
+        /// Metodo que devuelve un valor booleano respecto a si los service que busca un employer coinciden con los que ofrece un trabajador
+        /// </summary>
+        /// <param name="worker"></param>
+        /// <param name="employer"></param>
+        /// <returns></returns>
         public static bool serviceFilter(Worker worker, Employer employer)
         {
             List<Service> servicesMatchs = new List<Service>();
