@@ -120,9 +120,9 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:ClassLibrary.Employer.Service">
+        <member name="P:ClassLibrary.Employer.ServicesList">
             <summary>
-            Instancia de Service --> indica el trabajo que ofrece
+            Lista con instancias de Service --> indica el trabajo que ofrece
             </summary>
             <value></value>
         </member>
@@ -131,6 +131,12 @@
             Puntuacion global del contratador
             </summary>
             <value></value>
+        </member>
+        <member name="M:ClassLibrary.Employer.AddService(ClassLibrary.Service)">
+            <summary>
+            Metodo que añade una instancia de service a Person.ServicesList
+            </summary>
+            <param name="service"></param>
         </member>
         <member name="T:ClassLibrary.IPerson">
             <summary>
@@ -179,11 +185,17 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:ClassLibrary.IPerson.Service">
+        <member name="P:ClassLibrary.IPerson.ServicesList">
             <summary>
             Getter de la instancia servicio de una persona --> conoce el campo de trabajo, el trabajo mismo, su descripcion, y el precio esperado
             </summary>
             <value></value>
+        </member>
+        <member name="M:ClassLibrary.IPerson.AddService(ClassLibrary.Service)">
+            <summary>
+            Metodo que añade una instancia de service a Person.ServicesList
+            </summary>
+            <param name="service"></param>
         </member>
         <member name="T:ClassLibrary.JobFields">
             <summary>
@@ -217,6 +229,7 @@
             <param name="worker"></param>
             <param name="employer"></param>
             <returns></returns>
+            
         </member>
         <member name="M:ClassLibrary.Match.Negotiate(ClassLibrary.Worker,ClassLibrary.Employer)">
             <summary>
@@ -265,15 +278,17 @@
             Conoce la string Field (campo de trabajo)
             Conoce la string SpecificJob (nombre especifico del trabajo)
             Conoce la descripcion del trabajo
+            Conoce el coste a pagar del trabajo
             </summary>
         </member>
-        <member name="M:ClassLibrary.Service.#ctor(System.String,System.String,System.String)">
+        <member name="M:ClassLibrary.Service.#ctor(System.String,System.String,System.String,System.Int32)">
             <summary>
             Constructor de la clase Service
             </summary>
             <param name="field"></param>
             <param name="specificJob"></param>
             <param name="description"></param>
+            <param name="cost"></param>
         </member>
         <member name="P:ClassLibrary.Service.Field">
             <summary>
@@ -293,6 +308,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:ClassLibrary.Service.Cost">
+            <summary>
+            Lo que la persona espera pagar(contratador)/cobrar(trabajador) por dicho servicio
+            </summary>
+            <value></value>
+        </member>
         <member name="T:ClassLibrary.Worker">
             <summary>
             Clase Worker
@@ -303,9 +324,9 @@
             Cada vez que crea una instancia, la añade a la lista activeWorkers
             </summary>
         </member>
-        <member name="M:ClassLibrary.Worker.#ctor(System.String,System.String,System.String,System.String,System.Int32,System.Int32,Locate.Location,ClassLibrary.Service)">
+        <member name="M:ClassLibrary.Worker.#ctor(System.String,System.String,System.String,System.String,System.Int32,Locate.Location,ClassLibrary.Service)">
             <summary>
-            
+            Constructor de la clase Worker
             </summary>
             <param name="name"></param>
             <param name="phoneNumber"></param>
@@ -352,12 +373,6 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:ClassLibrary.Worker.Service">
-            <summary>
-            Instancia de Service --> indica el trabajo que ofrece
-            </summary>
-            <value></value>
-        </member>
         <member name="P:ClassLibrary.Worker.MaxDistance">
             <summary>
             Indica el radio maximo de distancia que el trabajador esta dispuesto a "recorrer"
@@ -370,22 +385,17 @@
             </summary>
             <value></value>
         </member>
-        <member name="F:ClassLibrary.Worker.activeWorkers">
-            <summary>
-            Lista que contiene instancias de Worker --> base de datos de todas las ofertas de trabajo activas disponibles 
-            </summary>
-        </member>
-        <member name="P:ClassLibrary.Worker.Salary">
-            <summary>
-            Pago minimo fijado por un trabajador para un determinado servicio
-            </summary>
-            <value></value>
-        </member>
         <member name="P:ClassLibrary.Worker.Rating">
             <summary>
             Valor promedio de los ratings del trabajador
             </summary>
             <value></value>
+        </member>
+        <member name="M:ClassLibrary.Worker.AddService(ClassLibrary.Service)">
+            <summary>
+            Metodo que añade una instancia de service a Person.ServicesList
+            </summary>
+            <param name="service"></param>
         </member>
         <member name="T:Locate.Location">
             <summary>
@@ -398,6 +408,12 @@
             </summary>
             <param name="x"></param>
             <param name="y"></param>
+        </member>
+        <member name="P:Locate.Location.PersonCoord">
+            <summary>
+            Diccionario cuyas claves son X e Y, y sus valores son los valores respectivos a cada coordenada
+            </summary>
+            <value></value>
         </member>
         <member name="M:Locate.Location.getX">
             <summary>

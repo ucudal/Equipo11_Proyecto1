@@ -44,10 +44,10 @@ namespace ClassLibrary
         /// <param name="worker"></param>
         /// <param name="employer"></param>
         /// <returns></returns>
-
+        /// 
         private static bool ExactMatch(Worker worker, Employer employer)
         {
-            if (worker.Service.SpecificJob == employer.Service.SpecificJob)
+            if(ServiceFilter.serviceFilter(worker,employer)==true)
             {
                 if (Rate.TotalRating(worker) >= employer.MinimumRating)
                 {
@@ -63,7 +63,6 @@ namespace ClassLibrary
                 return false;
             }
         }
-
         /// <summary>
         /// Metodo que habilita una negociacion de terminos (pago/distancia/valoracion minima) entre ambas partes
         /// </summary>
