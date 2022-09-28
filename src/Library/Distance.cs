@@ -7,7 +7,7 @@ namespace ClassLibrary
 {
     /// <summary>
     /// Clase Distance
-    /// Conoce el metodo distanceCalculator 
+    /// Conoce el metodo DistanceCalculator 
     /// </summary>
     public class Distance
     {
@@ -17,7 +17,7 @@ namespace ClassLibrary
         /// <param name="person1"></param>
         /// <param name="person2"></param>
         /// <returns></returns>
-        public static int distanceCalculator(IPerson person1, IPerson person2)
+        public static int DistanceCalculator(IPerson person1, IPerson person2)
         {
             double Distance = Math.Sqrt( (Math.Pow(person1.Location.getX(),2) + Math.Pow(person2.Location.getX(),2)) - ( Math.Pow(person1.Location.getY(),2) ) + ( Math.Pow(person2.Location.getY(),2)) );
             if(Distance<0)
