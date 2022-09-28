@@ -237,13 +237,13 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:ClassLibrary.Location.getX">
+        <member name="M:ClassLibrary.Location.getLatitude">
             <summary>
             Getter de la coordenada X
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ClassLibrary.Location.getY">
+        <member name="M:ClassLibrary.Location.getLongitude">
             <summary>
             Getter de la coordenada Y
             </summary>
