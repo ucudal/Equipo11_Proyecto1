@@ -9,7 +9,7 @@
             Conoce una lista de tipo workers
             </summary>
         </member>
-        <member name="P:ClassLibrary.ActiveWorkers.activeWorkers">
+        <member name="F:ClassLibrary.ActiveWorkers.activeWorkers">
             <summary>
             Conoce cada instancia de Worker creada
             </summary>
@@ -67,7 +67,7 @@
             <param name="person2"></param>
             <returns></returns>
         </member>
-        <member name="M:ClassLibrary.Employer.#ctor(System.String,System.String,System.String,System.String,System.Double,Locate.Location,ClassLibrary.Service)">
+        <member name="M:ClassLibrary.Employer.#ctor(System.String,System.String,System.String,System.String,System.Double,ClassLibrary.Location,ClassLibrary.Service)">
             <summary>
             Constructor de la clase Employer
             </summary>
@@ -209,6 +209,42 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:ClassLibrary.Location">
+            <summary>
+            Esta clase se encarga de guardar las coordenadas de una persona en objeto
+            </summary>
+        </member>
+        <member name="M:ClassLibrary.Location.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor de la clase Location
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="P:ClassLibrary.Location.PersonCoord">
+            <summary>
+            Diccionario cuyas claves son X e Y, y sus valores son los valores respectivos a cada coordenada
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:ClassLibrary.Location.getX">
+            <summary>
+            Getter de la coordenada X
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClassLibrary.Location.getY">
+            <summary>
+            Getter de la coordenada Y
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClassLibrary.Location.getLocation">
+            <summary>
+            Getter de la ubicacion en formato [X, Y]
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:ClassLibrary.Match">
              Esta clase comparara los datos entre worker y empleador
             A partir de ahi dictaminara si existe un emparejamiento posible o no
@@ -217,19 +253,19 @@
         </member>
         <member name="M:ClassLibrary.Match.LookingForMatch(ClassLibrary.Employer)">
             <summary>
-            
+            Este metodo se encarga de retornar una lista (de la base de datos de trabajadores)
+            con los trabajadores que coinciden con los servicios que el empleador tiene
             </summary>
             <param name="employer"></param>
             <returns></returns>
         </member>
         <member name="M:ClassLibrary.Match.ExactMatch(ClassLibrary.Worker,ClassLibrary.Employer)">
             <summary>
-            
+            Este metodo se encarga de determinar si existe un match exacto entre un empleado y un empleador segun sus preferencias personales
             </summary>
             <param name="worker"></param>
             <param name="employer"></param>
-            <returns></returns>
-            
+            <returns></returns>        
         </member>
         <member name="M:ClassLibrary.Match.Negotiate(ClassLibrary.Worker,ClassLibrary.Employer)">
             <summary>
@@ -245,13 +281,14 @@
             Contiene TotalRating() que calcula la valoracion promedio de los Rating de un IPerson.
             </summary>
         </member>
-        <member name="M:ClassLibrary.Rate.#ctor(System.Double,System.String)">
+        <member name="M:ClassLibrary.Rate.#ctor(ClassLibrary.IPerson,System.Double,System.String)">
             <summary>
             Constructor de la clase Rating.
             Por cada nueva instancia de Rate, se modifica el Rating de la persona ingresada
             y se añade dicha instancia a Reputation 
             </summary>
-            <param name="rate"></param>
+            <param name="person"></param>
+            <param name="rating"></param>
             <param name="description"></param>
         </member>
         <member name="P:ClassLibrary.Rate.Description">
@@ -330,7 +367,7 @@
             Cada vez que crea una instancia, la añade a la lista activeWorkers
             </summary>
         </member>
-        <member name="M:ClassLibrary.Worker.#ctor(System.String,System.String,System.String,System.String,System.Int32,Locate.Location,ClassLibrary.Service)">
+        <member name="M:ClassLibrary.Worker.#ctor(System.String,System.String,System.String,System.String,System.Int32,ClassLibrary.Location,ClassLibrary.Service)">
             <summary>
             Constructor de la clase Worker
             </summary>
@@ -402,42 +439,6 @@
             Metodo que añade una instancia de service a Person.ServicesList
             </summary>
             <param name="service"></param>
-        </member>
-        <member name="T:Locate.Location">
-            <summary>
-            Esta clase se encarga de guardar las coordenadas de una persona en objeto
-            </summary>
-        </member>
-        <member name="M:Locate.Location.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Constructor de la clase Location
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-        </member>
-        <member name="P:Locate.Location.PersonCoord">
-            <summary>
-            Diccionario cuyas claves son X e Y, y sus valores son los valores respectivos a cada coordenada
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Locate.Location.getX">
-            <summary>
-            Getter de la coordenada X
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Locate.Location.getY">
-            <summary>
-            Getter de la coordenada Y
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Locate.Location.getLocation">
-            <summary>
-            Getter de la ubicacion en formato [X, Y]
-            </summary>
-            <returns></returns>
         </member>
     </members>
 </doc>

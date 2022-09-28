@@ -17,7 +17,7 @@ namespace ClassLibrary
         /// <param name="person"></param>
         public static void PersonPrinter(IPerson person)
         {
-            Console.WriteLine($"Nombre: {person.Name}.\nNumero de Telefono: {person.PhoneNumber}.\nMail: {person.EmailAddress}.\n");
+            Console.WriteLine($"Nombre: {person.Name}.\nNumero de Telefono: {person.PhoneNumber}.\nMail: {person.EmailAddress}.\nRating: {person.Rating}\n");
         }
 
         /// <summary>

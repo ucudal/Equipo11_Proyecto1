@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Locate;
+
 namespace ClassLibrary
 {
     /// <summary>
@@ -40,7 +40,6 @@ namespace ClassLibrary
         private string phoneNumber;
         private string emailAddress;
         private string id;
-        private Service service { get; set; }
 
         /// <summary>
         /// Nombre del trabajador

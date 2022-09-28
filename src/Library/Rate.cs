@@ -1,5 +1,5 @@
 using ClassLibrary;
-using Locate;
+
 namespace ClassLibrary
 {
     /// <summary>
@@ -15,9 +15,10 @@ namespace ClassLibrary
         /// Por cada nueva instancia de Rate, se modifica el Rating de la persona ingresada
         /// y se añade dicha instancia a Reputation 
         /// </summary>
-        /// <param name="rate"></param>
+        /// <param name="person"></param>
+        /// <param name="rating"></param>
         /// <param name="description"></param>
-        public Rate(double rate, string description)
+        public Rate(IPerson person, double rating, string description)
         {
             this.Rating = rating;
             this.Description = description;
@@ -32,7 +33,20 @@ namespace ClassLibrary
         /// Breve descripcion formal de una parte respecto a la otra
         /// </summary>
         /// <value></value>
-        public string Description { get; set; }
+        public string Description 
+        {
+        get
+            {
+                return this.description;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this.description = value;
+                }
+            }
+        }
         private double rating;
 
         /// <summary>

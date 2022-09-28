@@ -40,14 +40,11 @@ namespace ClassLibrary
         }
 
         /// <summary>
-        /// 
+        /// Este metodo se encarga de determinar si existe un match exacto entre un empleado y un empleador segun sus preferencias personales
         /// </summary>
         /// <param name="worker"></param>
         /// <param name="employer"></param>
-        /// <returns></returns>
-        /// Este metodo se encarga de determinar si existe un match exacto entre un empleado y un empleador segun sus preferencias personales
-        /// 
-        
+        /// <returns></returns>        
         private static bool ExactMatch(Worker worker, Employer employer)
         {
             if((ServiceFilter.serviceFilter(worker,employer)==true) & ( Rate.TotalRating(worker) >= employer.MinimumRating) & (Distance.DistanceCalculator(worker,employer)<=worker.MaxDistance ))

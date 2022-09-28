@@ -2,7 +2,7 @@ using System;
 using ClassLibrary;
 using System.Collections;
 using System.Collections.Generic;
-namespace Locate
+namespace ClassLibrary
 
 {
     /// <summary>
