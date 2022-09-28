@@ -30,7 +30,7 @@ namespace ClassLibrary
                 {
                     if (Negotiate(worker, employer))
                     {
-
+                        
                     }
                 }
 
@@ -47,9 +47,9 @@ namespace ClassLibrary
         /// 
         private static bool ExactMatch(Worker worker, Employer employer)
         {
-            if(ServiceFilter.serviceFilter(worker,employer)==true)
+            if((ServiceFilter.serviceFilter(worker,employer)==true) )
             {
-                if (Rate.TotalRating(worker) >= employer.MinimumRating)
+                if (( Rate.TotalRating(worker) >= employer.MinimumRating) & (Distance.DistanceCalculator(worker,employer)<=worker.MaxDistance ))
                 {
                     return true;
                 }

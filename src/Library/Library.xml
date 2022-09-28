@@ -56,10 +56,10 @@
         <member name="T:ClassLibrary.Distance">
             <summary>
             Clase Distance
-            Conoce el metodo distanceCalculator 
+            Conoce el metodo DistanceCalculator 
             </summary>
         </member>
-        <member name="M:ClassLibrary.Distance.distanceCalculator(ClassLibrary.IPerson,ClassLibrary.IPerson)">
+        <member name="M:ClassLibrary.Distance.DistanceCalculator(ClassLibrary.IPerson,ClassLibrary.IPerson)">
             <summary>
             Calcula la distancia entre trabajador y empleado para ver si cumple el radio de distancia ingresado por el trabajador
             </summary>
@@ -313,6 +313,12 @@
             Lo que la persona espera pagar(contratador)/cobrar(trabajador) por dicho servicio
             </summary>
             <value></value>
+        </member>
+        <member name="T:ClassLibrary.ServiceFilter">
+            <summary>
+            Esta clase se encarga de realizar un filtro entre los servicios que ofrece el trabajador y el empleador
+            y determinar si existe una coincidencia o no
+            </summary>
         </member>
         <member name="T:ClassLibrary.Worker">
             <summary>
