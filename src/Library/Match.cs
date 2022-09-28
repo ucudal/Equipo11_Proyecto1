@@ -12,7 +12,8 @@ namespace ClassLibrary
         private IPerson person;
 
         /// <summary>
-        /// 
+        /// Este metodo se encarga de retornar una lista (de la base de datos de trabajadores)
+        /// con los trabajadores que coinciden con los servicios que el empleador tiene
         /// </summary>
         /// <param name="employer"></param>
         /// <returns></returns>
@@ -44,19 +45,14 @@ namespace ClassLibrary
         /// <param name="worker"></param>
         /// <param name="employer"></param>
         /// <returns></returns>
+        /// Este metodo se encarga de determinar si existe un match exacto entre un empleado y un empleador segun sus preferencias personales
         /// 
+        
         private static bool ExactMatch(Worker worker, Employer employer)
         {
-            if((ServiceFilter.serviceFilter(worker,employer)==true) )
+            if((ServiceFilter.serviceFilter(worker,employer)==true) & ( Rate.TotalRating(worker) >= employer.MinimumRating) & (Distance.DistanceCalculator(worker,employer)<=worker.MaxDistance ))
             {
-                if (( Rate.TotalRating(worker) >= employer.MinimumRating) & (Distance.DistanceCalculator(worker,employer)<=worker.MaxDistance ))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {
