@@ -20,9 +20,9 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            Service changa= new Service("Educacion", "Deporte", "Escuela de futbol", 1500);
+            Service changa= new Service(new Jobs("Educacion", "Deporte"), "Escuela de futbol", 1500);
             IPerson chinoRecoba= new Worker("Alvaro Recoba", "099123456", "arecoba@gmail.com", "12345678", 20, new Location(80, 170), changa);
-            Service buscoClases= new Service("Educacion", "Deporte", "Clases de futbol", 2000);
+            Service buscoClases= new Service(new Jobs("Educacion", "Deporte"), "Clases de futbol", 2000);
             Employer castro= new Employer("Alex Castro", "099654321", "parcero@gmail.com","87654321", 4, new Location(30, 400), buscoClases);
             Match.LookingForMatch(castro);
             Rate castroCalificaAlChino= new Rate (chinoRecoba, 5, "mejore mucho mi pegada");
@@ -32,7 +32,7 @@ namespace ConsoleApplication
             ConsolePrinter.PersonPrinter(chinoRecoba);
             Console.WriteLine(castro.Reputation[0].Description);
             Console.WriteLine(chinoRecoba.Reputation[0].Description);
-            Console.WriteLine(Distance.DistanceCalculator(chinoRecoba,castro));
+            Console.WriteLine(DistanceCalculator.CalculateDistance(chinoRecoba,castro));
 
             
         }

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿// Felipe Villaronga
+
+
+using System.Collections.Generic;
 
 namespace ClassLibrary
 {
@@ -33,7 +36,7 @@ namespace ClassLibrary
             this.Rating= 0;
             this.Reputation = new List<Rate>();
             this.ServicesList= new List<Service>() {service};
-            ActiveWorkers.activeWorkers.Add(this);
+            ActiveWorkers.ActualWorkers.Add(this);
         }
         private string name;
         private string phoneNumber;

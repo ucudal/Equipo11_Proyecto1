@@ -12,7 +12,7 @@ namespace ClassLibrary
         /// </summary>
         /// <typeparam name="Worker"></typeparam>
         /// <returns></returns>
-        public static List<Worker> activeWorkers= new List<Worker> ();
+        public static List<Worker> ActualWorkers= new List<Worker> ();
     }
 }
 

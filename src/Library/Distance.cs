@@ -1,7 +1,6 @@
+// Juan Magrini
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using ClassLibrary;
 
 namespace ClassLibrary
 {
@@ -9,7 +8,7 @@ namespace ClassLibrary
     /// Clase Distance
     /// Conoce el metodo DistanceCalculator 
     /// </summary>
-    public class Distance
+    public class DistanceCalculator
     {
         /// <summary>
         /// Calcula la distancia entre trabajador y empleado para ver si cumple el radio de distancia ingresado por el trabajador
@@ -17,10 +16,16 @@ namespace ClassLibrary
         /// <param name="person1"></param>
         /// <param name="person2"></param>
         /// <returns></returns>
-        public static double DistanceCalculator(IPerson person1, IPerson person2)
+        public static double CalculateDistance(IPerson person1, IPerson person2)
         {
-            double Distance = Math.Sqrt( (Math.Pow(person1.Location.getLatitude()-person2.Location.getLatitude(),2) ) + ( Math.Pow(person1.Location.getLongitude()-person2.Location.getLongitude(),2) ));
+            double Distance = Math.Sqrt((Math.Pow(person1.Location.Latitude - person2.Location.Latitude, 2)) + (Math.Pow(person1.Location.Longitude - person2.Location.Longitude, 2)));
             return Distance;
         }
     }
 }
+
+/*  
+Se crea una nueva clase para respetar el principio SRP.
+Esta clase tiene como única responsabilidad calcular la distancia entre un usuario Employer y un usuario Worker; 
+mediante el método CalculateDistance(IPerson person1, IPerson person2)
+*/

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
 
-    ///  Esta clase comparara los datos entre worker y empleador
-    /// A partir de ahi dictaminara si existe un emparejamiento posible o no
-    /// A futuro pensamos hacer uso del chatbot para darle la libertad de negociacion y flexibilizar algunos datos (ej: salario, ubicacion)
-    /// Y que eso permita un emparejamiento a pesar de que los datos iniciales no coincidieran del todo
+    /// <summary>
+    /// Esta clase comparara los datos entre worker y empleador.
+    /// A partir de ahi dictaminara si existe un emparejamiento posible o no.
+    /// A futuro pensamos hacer uso del chatbot para darle la libertad de negociacion y flexibilizar algunos datos (ej: salario, ubicacion).
+    /// Y que eso permita un emparejamiento a pesar de que los datos iniciales no coincidieran del todo.
+    /// </summary>
     public class Match
     {
         private IPerson person;
@@ -20,7 +22,7 @@ namespace ClassLibrary
         public static List<Worker> LookingForMatch(Employer employer)
         {
             List<Worker> matchList= new List<Worker> ();
-            foreach (Worker worker in ActiveWorkers.activeWorkers)
+            foreach (Worker worker in ActiveWorkers.ActualWorkers)
             {
                 if (ExactMatch(worker, employer))
                 {
@@ -31,7 +33,7 @@ namespace ClassLibrary
                 {
                     if (Negotiate(worker, employer))
                     {
-                        
+                        // Funcion que abra chatbot
                     }
                 }
 
@@ -47,7 +49,7 @@ namespace ClassLibrary
         /// <returns></returns>        
         private static bool ExactMatch(Worker worker, Employer employer)
         {
-            if((ServiceFilter.serviceFilter(worker,employer)==true) & ( Rate.TotalRating(worker) >= employer.MinimumRating) & (Distance.DistanceCalculator(worker,employer)<=worker.MaxDistance ))
+            if((ServiceFilter.FilterService(worker,employer)) & ( Rate.TotalRating(worker) >= employer.MinimumRating) & (DistanceCalculator.CalculateDistance(worker,employer)<=worker.MaxDistance ))
             {
                 return true;
             }

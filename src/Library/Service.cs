@@ -18,60 +18,24 @@ namespace ClassLibrary
         /// <param name="specificJob"></param>
         /// <param name="description"></param>
         /// <param name="cost"></param>
-        public Service(string field, string specificJob, string description, int cost)
+        public Service(Jobs job, string description, int cost)
         {
-            this.Field = field;
-            this.SpecificJob = specificJob;
+            this.Job= job;
             this.Description = description;
             this.Cost = cost;
         }
-        private string fieldArea;
-        private string field;
+        private Jobs job;
         private string description;
         private double starsRating;
 
         /// <summary>
-        /// Campo de trabajo del servicio --> debe exister como clave dentro del diccionario JobFields.WorkFields 
+        /// Instancia de Jobs, cuyos atributos son el nombre del rubro y el nombre especifico del trabajo.
         /// </summary>
         /// <value></value>
-        public string Field
-        {
-            get
-            {
-                return this.field;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && JobFields.WorkFields.ContainsKey(value))
-                {
-                    this.field = value;
-                }
-            }
-        }
-        private string specificJob;
+        public Jobs Job {get; set;}
 
         /// <summary>
-        /// Nombre mas especifico del trabajo --> debe existir como valor dentro del Field ingresado
-        /// </summary>
-        /// <value></value>
-        public string SpecificJob
-        {
-            get
-            {
-                return this.specificJob;
-            }
-            set
-            {
-                //Aseguro que la string se encuentre dentro de la lista asociada a la clave Field
-                if (!string.IsNullOrEmpty(value) && JobFields.WorkFields[this.field].Contains(value))
-                {
-                    this.specificJob = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Descripcion formal del trabajo
+        /// Descripción formal del trabajo.
         /// </summary>
         /// <value></value>
         public string Description

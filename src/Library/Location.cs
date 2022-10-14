@@ -1,3 +1,5 @@
+// Juan Magrini
+
 using System;
 using ClassLibrary;
 using System.Collections;
@@ -10,49 +12,29 @@ namespace ClassLibrary
     /// </summary>
     public class Location
     {
+        
         /// <summary>
         /// Constructor de la clase Location
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        public Location(int x, int y)
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        public Location(int latitude, int longitude)
         {
-            this.PersonCoord= new Dictionary<string, int> {{"Latitude", x}, {"Longitude", y}};
+            this.Latitude= latitude;
+            this.Longitude= longitude;
         }
         IPerson person;
 
         /// <summary>
-        /// Diccionario cuyas claves son X e Y, y sus valores son los valores respectivos a cada coordenada
+        /// Coordenada de Latitud
         /// </summary>
         /// <value></value>
-        public Dictionary<string,int> PersonCoord {get; set;}
-        
+        public int Latitude {get;set;}
         /// <summary>
-        /// Getter de la coordenada X
+        /// Coordenada de longitud
         /// </summary>
-        /// <returns></returns>
-        public int getLatitude()
-        {
-            return PersonCoord["Latitude"];
-        }
-
-        /// <summary>
-        /// Getter de la coordenada Y
-        /// </summary>
-        /// <returns></returns>
-        public int getLongitude()
-        {
-            return PersonCoord["Longitude"];
-        }
-
-        /// <summary>
-        /// Getter de la ubicacion en formato [X, Y]
-        /// </summary>
-        /// <returns></returns>
-        public string getLocation()
-        {
-            return $"{person.Name} Location = {getLatitude()},{getLongitude()}";
-        }
+        /// <value></value>
+        public int Longitude {get;set;}
     }
 
 }

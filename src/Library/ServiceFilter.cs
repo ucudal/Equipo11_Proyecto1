@@ -1,3 +1,5 @@
+//
+
 using System.Collections.Generic;
 
 namespace ClassLibrary
@@ -14,26 +16,20 @@ namespace ClassLibrary
         /// <param name="worker"></param>
         /// <param name="employer"></param>
         /// <returns></returns>
-        public static bool serviceFilter(Worker worker, Employer employer)
+        public static bool FilterService(Worker worker, Employer employer)
         {
+            bool output = false;
             List<Service> servicesMatchs = new List<Service>();
-            bool output=true;
-            foreach(Service workerService in worker.ServicesList)
+            foreach (Service workerService in worker.ServicesList)
             {
-                foreach(Service employerService in employer.ServicesList)
+                foreach (Service employerService in employer.ServicesList)
                 {
-                    if(workerService.SpecificJob==employerService.SpecificJob)
-                    {
-                        output=true;
-                    }
-                    else
-                    {
-                        output=false;
-                    }
+                    output = workerService.Job.SpecificJob == employerService.Job.SpecificJob;
                 }
             }
             return output;
         }
     }
 }
+
 
